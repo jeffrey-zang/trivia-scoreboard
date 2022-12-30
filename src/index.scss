@@ -1,0 +1,111 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;800&display=swap');
+
+body {
+  margin: 0;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  border: none;
+  outline: none;
+}
+* { font-family: 'Open Sans', sans-serif; }
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+h1, h2, h3 {
+  font-weight: normal;
+}
+h1 {
+  text-align: center;
+}
+
+* {
+  // outline: 1px solid red;
+}
+
+.App {
+  padding: 0;
+  h1 {
+    padding: 1rem;
+    margin: 0;
+    box-shadow: 0 1px 10px 2px hsl(0deg 0% 69% / 40%);
+  }
+}
+
+#wrapper {
+  display: flex;
+  margin-top: 3rem;
+  justify-content: space-between;
+  align-items: center;
+}
+.timer {
+  border: 2px solid black;
+  padding: 0.5rem;
+  width: 10rem;
+  text-align: center;
+  position: absolute;
+  left: 0;
+  right: 0;
+  margin-left: auto;
+  margin-right: auto;
+  top: 40%;
+  font-size: 3rem;
+  border-radius: 10px;
+  z-index: 2;
+  background-color: #fff;
+}
+.buttons {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  align-items: center;
+
+  button {
+    font-size: 2rem;
+    width: 3rem;
+    height: 3rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #eee;
+    border: 1px solid #ccc;
+    border-radius: 1.5rem;
+    cursor: pointer;
+    transition: background-color 0.3s;
+
+    &:hover {
+      background-color: #ddd;
+    }
+    &:active {
+      transform: scale(0.95);
+    }
+  }
+}
+.team {
+  width: 50%;
+  padding: 1.25rem 8rem;
+  text-align: center;
+  height: 75vh;
+  border-right: 2px solid black;
+  
+  .score {
+    text-align: center;
+    font-size: 8rem;
+    width: 50%;
+    border: none;
+    outline: none;
+    margin: 4rem;
+  }
+  .teamName {
+    display: flex;
+    justify-content: center;
+    font-size: 2rem;
+    text-align: center;
+    padding: 0.5rem;
+    width: 100%;
+    border-radius: 10px;
+    outline: none;
+  }
+}
