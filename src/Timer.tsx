@@ -5,10 +5,11 @@ import { BsFillPlayFill } from "react-icons/bs";
 interface TimerProps {
   running: boolean
   setRunning: Dispatch<SetStateAction<boolean>>
+  time: number
+  setTime: Dispatch<SetStateAction<number>>
 }
 
-const Timer: FC<TimerProps> = ({running, setRunning}) => {
-    const [time, setTime] = useState(5000);
+const Timer: FC<TimerProps> = ({running, setRunning, time, setTime}) => {
     const [message, setMessage] = useState<string | null>(null)
     const ref = useRef<HTMLDivElement | null>(null);
     
