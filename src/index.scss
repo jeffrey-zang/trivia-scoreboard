@@ -82,6 +82,18 @@ button {
     transform: scale(0.95);
   }
 }
+
+.themeinput {
+  width: 2rem;
+  font-size: 2rem;
+  border: none;
+  outline: none;
+
+  &:last-child {
+    text-align: center;
+    width: 100%;
+  }
+}
 .team {
   width: 50%;
   padding: 1.25rem 8rem;

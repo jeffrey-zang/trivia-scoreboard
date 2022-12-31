@@ -10,8 +10,14 @@ function App() {
   const [running, setRunning] = useState<boolean>(false);
   const [time, setTime] = useState(5000);
 
+  const [theme, setTheme] = useState<string>("orphans")
+  const [themeAmount, setThemeAmount] = useState<string>("4")
+  const [showTheme, setShowTheme] = useState<boolean>(false)
+
   return (
     <div className="App" tabIndex={0} onKeyDown={(e) => {
+      const target = e.target as HTMLElement;
+      if( target.nodeName == "INPUT" || target.nodeName == "TEXTAREA" ) return;
       if (e.key === "1"){
         setScoreOne(scoreOne + 1)
       } else if (e.key === "2") {
@@ -20,6 +26,8 @@ function App() {
         setRunning(!running)
       } else if (e.key === 'r') {
         setTime(5000)
+      } else if (e.key === 't') {
+        setShowTheme(!showTheme)
       }
   }}>
       <h1>Trivia Scoreboard</h1>
@@ -29,8 +37,8 @@ function App() {
         <Team teamNumber={1} score={scoreOne} setScore={setScoreOne}/>
         <Team teamNumber={2} score={scoreTwo} setScore={setScoreTwo}/>
       </div>
-      <div>
-        <h1>The next 10 questions deal with orphans</h1>
+      <div style={{display: (showTheme) ? 'block' : "none"}}>
+        <h1>The next <input value={themeAmount} onChange={(e) => setThemeAmount(e.target.value)} className='themeinput'/> <br/>questions deal with <br/><input value={theme} onChange={(e) => setTheme(e.target.value)} className='themeinput'/></h1>
       </div>
       <Help/>
     </div>
