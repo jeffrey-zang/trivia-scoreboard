@@ -61,33 +61,32 @@ h1 {
   gap: 1rem;
   justify-content: center;
   align-items: center;
+}
+button {
+  font-size: 2rem;
+  width: 3rem;
+  height: 3rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #eee;
+  border: 1px solid #ccc;
+  border-radius: 1.5rem;
+  cursor: pointer;
+  transition: background-color 0.3s;
 
-  button {
-    font-size: 2rem;
-    width: 3rem;
-    height: 3rem;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background-color: #eee;
-    border: 1px solid #ccc;
-    border-radius: 1.5rem;
-    cursor: pointer;
-    transition: background-color 0.3s;
-
-    &:hover {
-      background-color: #ddd;
-    }
-    &:active {
-      transform: scale(0.95);
-    }
+  &:hover {
+    background-color: #ddd;
+  }
+  &:active {
+    transform: scale(0.95);
   }
 }
 .team {
   width: 50%;
   padding: 1.25rem 8rem;
   text-align: center;
-  height: 75vh;
+  // height: 75vh;
   border-right: 2px solid black;
   
   .score {
@@ -108,4 +107,46 @@ h1 {
     border-radius: 10px;
     outline: none;
   }
+}
+
+#helppopup {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 3;
+  background-color: #fff;
+  width: 50%;
+  box-shadow: 0 1px 10px 2px hsl(0deg 0% 69% / 40%);
+  padding: 2rem;
+  border-radius: 10px;
+  border: 2px solid black;
+
+  table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+  }
+  
+  td, th {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+    width: 50%;
+  }
+  
+  tr:nth-child(even) {
+    background-color: #dddddd;
+  }
+}
+#helpbutton {
+  position: absolute;
+  right: 2rem;
+  bottom: 2rem;
+}
+#x {
+  position: absolute;
+  right: 1rem;
+  top: 1rem;
+  cursor: pointer;
 }

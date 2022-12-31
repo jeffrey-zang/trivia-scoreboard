@@ -1,6 +1,7 @@
 import React, {useState} from 'react';
 import Team from './Team'
 import Timer from './Timer'
+import Help from './Help'
 
 function App() {
 
@@ -28,6 +29,10 @@ function App() {
         <Team teamNumber={1} score={scoreOne} setScore={setScoreOne}/>
         <Team teamNumber={2} score={scoreTwo} setScore={setScoreTwo}/>
       </div>
+      <div>
+        <h1>The next 10 questions deal with orphans</h1>
+      </div>
+      <Help/>
     </div>
   );
 }
