@@ -31,6 +31,10 @@ const Help = () => {
                         <td>r</td>
                         <td>Reset the timer</td>
                     </tr>
+                    <tr>
+                        <td>t</td>
+                        <td>Show theme tab</td>
+                    </tr>
                     <button id='x' onClick={() => setShow(!show)}><RxCross1/></button>
                 </table>
             </div>

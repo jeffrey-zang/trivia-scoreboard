@@ -3,6 +3,8 @@ import Team from './Team'
 import Timer from './Timer'
 import Help from './Help'
 
+import { BsArrowUp, BsArrowDown } from "react-icons/bs";
+
 function App() {
 
   const [scoreOne, setScoreOne] = useState<number>(0)
@@ -37,8 +39,16 @@ function App() {
         <Team teamNumber={1} score={scoreOne} setScore={setScoreOne}/>
         <Team teamNumber={2} score={scoreTwo} setScore={setScoreTwo}/>
       </div>
-      <div style={{display: (showTheme) ? 'block' : "none"}}>
-        <h1>The next <input value={themeAmount} onChange={(e) => setThemeAmount(e.target.value)} className='themeinput'/> <br/>questions deal with <br/><input value={theme} onChange={(e) => setTheme(e.target.value)} className='themeinput'/></h1>
+      <div id='theme' style={{display: (showTheme) ? 'block' : "none"}}>
+        <h1>
+          <button onClick={(e) => {
+            var amount = Number(themeAmount)
+            let newamount = amount - 1;
+            setThemeAmount(newamount.toString())
+          }}><BsArrowDown/></button>
+          The next <input value={themeAmount} onChange={(e) => setThemeAmount(e.target.value)} className='themeinput'/> 
+          <br/>questions deal with 
+          <br/><input value={theme} onChange={(e) => setTheme(e.target.value)} className='themeinput'/></h1>
       </div>
       <Help/>
     </div>
