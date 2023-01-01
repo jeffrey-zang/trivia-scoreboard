@@ -36,6 +36,10 @@ const Help = () => {
             <td>Give team 2 a point</td>
           </tr>
           <tr>
+            <td>0</td>
+            <td>Reset both teams' points</td>
+          </tr>
+          <tr>
             <td>space</td>
             <td>Start the timer</td>
           </tr>
