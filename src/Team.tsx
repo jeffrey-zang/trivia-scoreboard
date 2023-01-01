@@ -30,16 +30,10 @@ const Team: FC<TeamProps> = ({ teamNumber }) => {
   useEffect(() => {
     document.addEventListener("keydown", eventListener);
     document.addEventListener("keydown", resetEventListener);
-    document.addEventListener("keydown", (e) => {
-      console.log(e.key);
-    });
 
     return () => {
       document.removeEventListener("keydown", eventListener);
       document.removeEventListener("keydown", resetEventListener);
-      document.removeEventListener("keydown", (e) => {
-        console.log(e.key);
-      });
     };
   }, [score, eventListener, resetEventListener]);
 
