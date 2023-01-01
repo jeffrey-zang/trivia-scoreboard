@@ -1,56 +1,67 @@
-import React, {useState} from 'react';
-import Team from './Team'
-import Timer from './Timer'
-import Help from './Help'
+import React, { useState, useEffect, useContext } from "react";
+import Team from "./Team";
+import Timer from "./Timer";
+import Help from "./Help";
+import { useShortcutEventListener } from "./utils";
 
-import { BsArrowUp, BsArrowDown } from "react-icons/bs";
+import { BsArrowDown } from "react-icons/bs";
 
 function App() {
+  const [theme, setTheme] = useState<string>("orphans");
+  const [themeAmount, setThemeAmount] = useState<string>("4");
+  const [showTheme, setShowTheme] = useState<boolean>(false);
 
-  const [scoreOne, setScoreOne] = useState<number>(0)
-  const [scoreTwo, setScoreTwo] = useState<number>(0)
-  const [running, setRunning] = useState<boolean>(false);
-  const [time, setTime] = useState(5000);
+  const eventListener = useShortcutEventListener("t", [showTheme], () => {
+    setShowTheme(!showTheme);
+  });
 
-  const [theme, setTheme] = useState<string>("orphans")
-  const [themeAmount, setThemeAmount] = useState<string>("4")
-  const [showTheme, setShowTheme] = useState<boolean>(false)
+  useEffect(() => {
+    document.addEventListener("keydown", eventListener);
+
+    return () => {
+      document.removeEventListener("keydown", eventListener);
+    };
+  }, [eventListener]);
 
   return (
-    <div className="App" tabIndex={0} onKeyDown={(e) => {
-      const target = e.target as HTMLElement;
-      if( target.nodeName == "INPUT" || target.nodeName == "TEXTAREA" ) return;
-      if (e.key === "1"){
-        setScoreOne(scoreOne + 1)
-      } else if (e.key === "2") {
-        setScoreTwo(scoreTwo + 1)
-      } else if (e.key === ' ') {
-        setRunning(!running)
-      } else if (e.key === 'r') {
-        setTime(5000)
-      } else if (e.key === 't') {
-        setShowTheme(!showTheme)
-      }
-  }}>
+    <div
+      className="App"
+    >
       <h1>Trivia Scoreboard</h1>
-      
-      <Timer {...{running, setRunning, time, setTime}}></Timer>
-      <div id='wrapper'>
-        <Team teamNumber={1} score={scoreOne} setScore={setScoreOne}/>
-        <Team teamNumber={2} score={scoreTwo} setScore={setScoreTwo}/>
+
+      <Timer />
+      <div id="wrapper">
+        <Team teamNumber={1} />
+        <Team teamNumber={2} />
       </div>
-      <div id='theme' style={{display: (showTheme) ? 'block' : "none"}}>
+      <div id="theme" style={{ display: showTheme ? "block" : "none" }}>
         <h1>
-          <button onClick={(e) => {
-            var amount = Number(themeAmount)
-            let newamount = amount - 1;
-            setThemeAmount(newamount.toString())
-          }}><BsArrowDown/></button>
-          The next <input value={themeAmount} onChange={(e) => setThemeAmount(e.target.value)} className='themeinput'/> 
-          <br/>questions deal with 
-          <br/><input value={theme} onChange={(e) => setTheme(e.target.value)} className='themeinput'/></h1>
+          <button
+            onClick={(e) => {
+              var amount = Number(themeAmount);
+              let newamount = amount - 1;
+              setThemeAmount(newamount.toString());
+            }}
+          >
+            <BsArrowDown />
+          </button>
+          The next{" "}
+          <input
+            value={themeAmount}
+            onChange={(e) => setThemeAmount(e.target.value)}
+            className="themeinput"
+          />
+          <br />
+          questions deal with
+          <br />
+          <input
+            value={theme}
+            onChange={(e) => setTheme(e.target.value)}
+            className="themeinput"
+          />
+        </h1>
       </div>
-      <Help/>
+      <Help />
     </div>
   );
 }
