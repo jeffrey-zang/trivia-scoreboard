@@ -1,4 +1,4 @@
-import {useCallback, DependencyList} from "react"
+import {useCallback, DependencyList, useState, useEffect} from "react"
 
 export const useShortcutEventListener: (key: string, deps: DependencyList, callback: (e?: KeyboardEvent, target?: Element) => void) => any = (key, deps, callback) => {
     return useCallback<(e: KeyboardEvent) => void>((e) => {
@@ -7,4 +7,25 @@ export const useShortcutEventListener: (key: string, deps: DependencyList, callb
             callback(e, target)
         }
     }, deps)
+}
+
+export const useAudio: (url: string) => [boolean, () => void] = url => {
+    const [audio] = useState(new Audio(url))
+    const [playing, setPlaying] = useState<boolean>(false)
+
+    const toggle = () => setPlaying(!playing)
+
+    useEffect(() => {
+        playing ? audio.play() : audio.pause()
+    }, [playing, audio])
+
+    useEffect(() => {
+        audio.addEventListener("ended", () => setPlaying(false))
+
+        return () => {
+            audio.removeEventListener("ended", () => setPlaying(false))
+        }
+    }, [audio])
+
+    return [playing, toggle]
 }
