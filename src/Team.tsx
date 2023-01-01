@@ -1,7 +1,7 @@
 import { useState, FC, useCallback, useEffect } from "react";
 import { BsArrowUp, BsArrowDown } from "react-icons/bs";
 import { AiOutlineReload } from "react-icons/ai";
-import { useShortcutEventListener } from "./utils";
+import { useShortcutEventListener, useAudio } from "./utils";
 
 interface TeamProps {
   teamNumber: number;
@@ -14,11 +14,13 @@ const Team: FC<TeamProps> = ({ teamNumber }) => {
   const [score, setScore] = useState<number>(0);
   const [scoreInput, setScoreInput] = useState<string>(score.toString());
   const [focusState, setFocusState] = useState<boolean>(false);
+  const [playing, togglePlaying] = useAudio("/Assets/ding.mp3");
 
   const eventListener = useShortcutEventListener(
     teamNumber.toString(),
     [score],
     () => {
+      togglePlaying()
       setScore(score + 1);
     }
   );
@@ -26,6 +28,7 @@ const Team: FC<TeamProps> = ({ teamNumber }) => {
   const resetEventListener = useShortcutEventListener("0", [score], () => {
     setScore(0);
   });
+  
 
   useEffect(() => {
     document.addEventListener("keydown", eventListener);
@@ -58,7 +61,7 @@ const Team: FC<TeamProps> = ({ teamNumber }) => {
         className="score"
       />
       <div className="buttons">
-        <button onClick={() => setScore(score + 1)}>
+        <button onClick={() => {setScore(score + 1); togglePlaying()}}>
           <BsArrowUp />
         </button>
         <button onClick={() => setScore(score - 1)}>
