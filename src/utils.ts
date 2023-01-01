@@ -6,7 +6,7 @@ export const useShortcutEventListener: (key: string, deps: DependencyList, callb
         if (target.nodeName !== "INPUT" && target.nodeName !== "TEXTAREA" && e.key === key) {
             callback(e, target)
         }
-    }, deps)
+    }, deps.concat(callback, key))
 }
 
 export const useAudio: (url: string) => [boolean, () => void] = url => {

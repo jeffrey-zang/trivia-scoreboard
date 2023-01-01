@@ -22,10 +22,10 @@
   },
   "typeRoots": [
     "node_modules/@types",
-    "custom_typings/"
+    "types/"
   ],  
   "include": [
     "src",
-    "custom_typings"
+    "types"
   ]
 }

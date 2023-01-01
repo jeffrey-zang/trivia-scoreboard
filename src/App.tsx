@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useContext } from "react";
+import React, { useState, useEffect } from "react";
 import Team from "./Team";
 import Timer from "./Timer";
 import Help from "./Help";

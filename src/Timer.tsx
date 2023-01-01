@@ -1,20 +1,27 @@
 import { useState, useEffect, useRef } from "react";
 import { GrPowerReset } from "react-icons/gr";
-import { BsFillPlayFill } from "react-icons/bs";
-import { useShortcutEventListener } from "./utils";
+import { BsFillPlayFill, BsFillPauseFill } from "react-icons/bs";
+import { useShortcutEventListener, useAudio } from "./utils";
 
 const Timer = () => {
   const [running, setRunning] = useState<boolean>(false);
   const [time, setTime] = useState(5000);
   const [message, setMessage] = useState<string | null>(null);
   const ref = useRef<HTMLDivElement | null>(null);
+  const [, togglePlaying] = useAudio("/Assets/wrong.mp3");
+
+  const reset = () => {
+    setTime(5000);
+    if (ref.current) ref.current.style.backgroundColor = "white";
+    setMessage(null);
+  };
 
   const runningEventListener = useShortcutEventListener(" ", [running], () => {
     setRunning(!running);
   });
 
-  const timeEventListener = useShortcutEventListener("r", [time], () => {
-    setTime(5000);
+  const timeEventListener = useShortcutEventListener("r", [ref], () => {
+    reset();
   });
 
   useEffect(() => {
@@ -25,7 +32,7 @@ const Timer = () => {
       document.removeEventListener("keydown", runningEventListener);
       document.removeEventListener("keydown", timeEventListener);
     };
-  }, [running, time, runningEventListener, timeEventListener]);
+  }, [running, ref, runningEventListener, timeEventListener]);
 
   useEffect(() => {
     let interval: any;
@@ -35,6 +42,7 @@ const Timer = () => {
           if (prevTime - 10 <= 0) {
             setRunning(false);
             if (ref.current) ref.current.style.backgroundColor = "red";
+            togglePlaying();
             setMessage("you slow");
           }
           return prevTime - 10;
@@ -60,15 +68,9 @@ const Timer = () => {
       </div>
       <div className="buttons">
         <button onClick={() => setRunning(!running)}>
-          <BsFillPlayFill />
+          {running ? <BsFillPauseFill /> : <BsFillPlayFill />}
         </button>
-        <button
-          onClick={() => {
-            setTime(5000);
-            if (ref.current) ref.current.style.backgroundColor = "white";
-            setMessage(null);
-          }}
-        >
+        <button onClick={() => reset()}>
           <GrPowerReset />
         </button>
       </div>

@@ -18,9 +18,9 @@ const Team: FC<TeamProps> = ({ teamNumber }) => {
 
   const eventListener = useShortcutEventListener(
     teamNumber.toString(),
-    [score],
+    [score, togglePlaying],
     () => {
-      togglePlaying()
+      togglePlaying();
       setScore(score + 1);
     }
   );
@@ -28,7 +28,6 @@ const Team: FC<TeamProps> = ({ teamNumber }) => {
   const resetEventListener = useShortcutEventListener("0", [score], () => {
     setScore(0);
   });
-  
 
   useEffect(() => {
     document.addEventListener("keydown", eventListener);
@@ -38,7 +37,7 @@ const Team: FC<TeamProps> = ({ teamNumber }) => {
       document.removeEventListener("keydown", eventListener);
       document.removeEventListener("keydown", resetEventListener);
     };
-  }, [score, eventListener, resetEventListener]);
+  }, [score, togglePlaying, eventListener, resetEventListener]);
 
   return (
     <div className="team">
@@ -61,7 +60,12 @@ const Team: FC<TeamProps> = ({ teamNumber }) => {
         className="score"
       />
       <div className="buttons">
-        <button onClick={() => {setScore(score + 1); togglePlaying()}}>
+        <button
+          onClick={() => {
+            setScore(score + 1);
+            togglePlaying();
+          }}
+        >
           <BsArrowUp />
         </button>
         <button onClick={() => setScore(score - 1)}>
