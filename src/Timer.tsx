@@ -18,6 +18,9 @@ const Timer = () => {
 
   const runningEventListener = useShortcutEventListener(" ", [running], () => {
     setRunning(!running);
+    if (time <= 0) {
+      reset();
+    }
   });
 
   const timeEventListener = useShortcutEventListener("r", [ref], () => {

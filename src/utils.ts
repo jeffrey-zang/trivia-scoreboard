@@ -21,7 +21,6 @@ export const useAudio: (url: string) => [boolean, () => void] = url => {
 
     useEffect(() => {
         audio.addEventListener("ended", () => setPlaying(false))
-        console.log("AAAAAAAA")
 
         return () => {
             audio.removeEventListener("ended", () => setPlaying(false))
