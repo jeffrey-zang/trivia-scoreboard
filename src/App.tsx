@@ -4,7 +4,7 @@ import Timer from "./Timer";
 import Help from "./Help";
 import { useShortcutEventListener } from "./utils";
 
-import { BsArrowDown } from "react-icons/bs";
+import { BsArrowDown, BsGithub } from "react-icons/bs";
 
 function App() {
   const [theme, setTheme] = useState<string>("orphans");
@@ -88,6 +88,9 @@ function App() {
         </h1>
       </div>
       <Help />
+      <a id='github' href='https://github.com/jeffrey-zang/trivia-scorekeeper' target='_blank' rel='noreferrer'>
+        <button><BsGithub/></button>
+      </a>
     </div>
   );
 }

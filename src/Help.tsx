@@ -37,7 +37,7 @@ const Help = () => {
           </tr>
           <tr>
             <td>0</td>
-            <td>Reset both teams' points</td>
+            <td>Reset both teams' points and the timer</td>
           </tr>
           <tr>
             <td>space</td>
@@ -57,7 +57,7 @@ const Help = () => {
           </tr>
           <tr>
             <td>/</td>
-            <td>halp</td>
+            <td>Show help tab</td>
           </tr>
           <button id="x" onClick={() => setShow(!show)}>
             <RxCross1 />

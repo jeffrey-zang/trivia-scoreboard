@@ -109,7 +109,7 @@ button {
   
   .score {
     text-align: center;
-    font-size: 8rem;
+    font-size: 10rem;
     width: 50%;
     border: none;
     outline: none;
@@ -160,6 +160,11 @@ button {
 #helpbutton {
   position: absolute;
   right: 2rem;
+  bottom: 2rem;
+}
+#github {
+  position: absolute;
+  left: 2rem;
   bottom: 2rem;
 }
 #x {
