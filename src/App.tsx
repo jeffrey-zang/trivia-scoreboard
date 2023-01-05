@@ -11,8 +11,16 @@ function App() {
   const [themeAmount, setThemeAmount] = useState<string>("4");
   const [showTheme, setShowTheme] = useState<boolean>(false);
 
+  const [showClues, setShowClues] = useState<boolean>(false);
+  const [clueAmount, setClueAmount] = useState<number>(4);
+  const clues = ['D', 'C', 'B', 'A']
+
   const eventListener = useShortcutEventListener("t", [showTheme], () => {
     setShowTheme(!showTheme);
+  });
+  const eventListener2 = useShortcutEventListener("c", [showClues], () => {
+    setShowClues(!showClues);
+    setClueAmount(4)
   });
 
   useEffect(() => {
@@ -22,6 +30,13 @@ function App() {
       document.removeEventListener("keydown", eventListener);
     };
   }, [eventListener]);
+  useEffect(() => {
+    document.addEventListener("keydown", eventListener2);
+
+    return () => {
+      document.removeEventListener("keydown", eventListener2);
+    };
+  }, [eventListener2]);
 
   return (
     <div
@@ -59,6 +74,22 @@ function App() {
             onChange={(e) => setTheme(e.target.value)}
             className="themeinput"
           />
+        </h1>
+      </div>
+      <div id="clues" style={{ display: showClues ? "block" : "none" }}>
+        <h1>
+          <button
+            onClick={(e) => {
+              setClueAmount(clueAmount-1);
+            }}
+          >
+            <BsArrowDown />
+          </button>
+          Who am I question
+          <br />
+          Clue {clues[Number(clueAmount)-1]}
+          <br />
+          {clueAmount} points
         </h1>
       </div>
       <Help />
