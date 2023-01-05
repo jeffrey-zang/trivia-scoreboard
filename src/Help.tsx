@@ -52,6 +52,10 @@ const Help = () => {
             <td>Show theme tab</td>
           </tr>
           <tr>
+            <td>c</td>
+            <td>Show clues for Who Am I questions</td>
+          </tr>
+          <tr>
             <td>/</td>
             <td>halp</td>
           </tr>

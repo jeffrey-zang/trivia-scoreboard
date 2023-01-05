@@ -18,21 +18,30 @@ const Timer = () => {
 
   const runningEventListener = useShortcutEventListener(" ", [running], () => {
     setRunning(!running);
+    if (time <= 0) {
+      reset();
+    }
   });
 
   const timeEventListener = useShortcutEventListener("r", [ref], () => {
     reset();
   });
 
+  const resetEventListener = useShortcutEventListener("0", [ref], () => {
+    reset();
+  });
+
   useEffect(() => {
     document.addEventListener("keydown", runningEventListener);
     document.addEventListener("keydown", timeEventListener);
+    document.addEventListener("keydown", resetEventListener);
 
     return () => {
       document.removeEventListener("keydown", runningEventListener);
       document.removeEventListener("keydown", timeEventListener);
+      document.removeEventListener("keydown", resetEventListener);
     };
-  }, [running, ref, runningEventListener, timeEventListener]);
+  }, [running, ref, runningEventListener, timeEventListener, resetEventListener]);
 
   useEffect(() => {
     let interval: any;

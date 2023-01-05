@@ -25,18 +25,13 @@ function App() {
 
   useEffect(() => {
     document.addEventListener("keydown", eventListener);
-
-    return () => {
-      document.removeEventListener("keydown", eventListener);
-    };
-  }, [eventListener]);
-  useEffect(() => {
     document.addEventListener("keydown", eventListener2);
 
     return () => {
+      document.removeEventListener("keydown", eventListener);
       document.removeEventListener("keydown", eventListener2);
     };
-  }, [eventListener2]);
+  }, [eventListener, eventListener2]);
 
   return (
     <div
