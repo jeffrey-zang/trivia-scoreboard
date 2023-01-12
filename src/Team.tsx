@@ -2,12 +2,18 @@ import { useState, FC, useCallback, useEffect } from "react";
 import { BsArrowUp, BsArrowDown } from "react-icons/bs";
 import { AiOutlineReload } from "react-icons/ai";
 import { useShortcutEventListener, useAudio } from "./utils";
+import { useReward } from 'react-rewards';
 
 interface TeamProps {
   teamNumber: number;
 }
 
 const Team: FC<TeamProps> = ({ teamNumber }) => {
+  const { reward, isAnimating } = useReward(`reward${teamNumber}`, 'confetti', {
+    lifetime: 175,
+    elementCount: 40,
+    spread: 60
+  });
   const [teamName, setTeamName] = useState<string>(
     teamNumber === 1 ? "Team A" : "Team B"
   );
@@ -22,6 +28,7 @@ const Team: FC<TeamProps> = ({ teamNumber }) => {
     () => {
       togglePlaying();
       setScore(score + 1);
+      reward();
     }
   );
 
@@ -64,9 +71,12 @@ const Team: FC<TeamProps> = ({ teamNumber }) => {
           onClick={() => {
             setScore(score + 1);
             togglePlaying();
+            reward();
           }}
         >
-          <BsArrowUp />
+          <span id={`reward${teamNumber}`}>
+            <BsArrowUp />
+          </span>
         </button>
         <button onClick={() => setScore(score - 1)}>
           <BsArrowDown />
