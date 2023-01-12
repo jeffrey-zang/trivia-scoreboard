@@ -9,7 +9,7 @@ export const useShortcutEventListener: (key: string, deps: DependencyList, callb
     }, deps.concat(callback, key))
 }
 
-export const useAudio: (url: string) => [boolean, () => void] = url => {
+export const useAudio: (url: string) => [boolean, () => void, HTMLAudioElement] = url => {
     const audio = useMemo(() => new Audio(url), [])
     const [playing, setPlaying] = useState<boolean>(false)
 
@@ -27,5 +27,5 @@ export const useAudio: (url: string) => [boolean, () => void] = url => {
         }
     }, [audio])
 
-    return [playing, toggle]
+    return [playing, toggle, audio]
 }
