@@ -13,30 +13,40 @@ function App() {
 
   const [showClues, setShowClues] = useState<boolean>(false);
   const [clueAmount, setClueAmount] = useState<number>(4);
-  const clues = ['D', 'C', 'B', 'A']
+  const clues = ["D", "C", "B", "A"];
 
   const eventListener = useShortcutEventListener("t", [showTheme], () => {
     setShowTheme(!showTheme);
+    setThemeAmount("4");
   });
   const eventListener2 = useShortcutEventListener("c", [showClues], () => {
     setShowClues(!showClues);
-    setClueAmount(4)
+    setClueAmount(4);
   });
+
+  const decrementListener = useShortcutEventListener(
+    "ArrowDown",
+    [clueAmount, themeAmount],
+    () => {
+      setThemeAmount((Number(themeAmount) - 1).toString());
+      setClueAmount(clueAmount - 1);
+    }
+  );
 
   useEffect(() => {
     document.addEventListener("keydown", eventListener);
     document.addEventListener("keydown", eventListener2);
+    document.addEventListener("keydown", decrementListener);
 
     return () => {
       document.removeEventListener("keydown", eventListener);
       document.removeEventListener("keydown", eventListener2);
+      document.removeEventListener("keydown", decrementListener);
     };
   }, [eventListener, eventListener2]);
 
   return (
-    <div
-      className="App"
-    >
+    <div className="App">
       <h1>Trivia Scoreboard</h1>
 
       <Timer />
@@ -60,6 +70,7 @@ function App() {
             value={themeAmount}
             onChange={(e) => setThemeAmount(e.target.value)}
             className="themeinput"
+            autoFocus
           />
           <br />
           questions deal with
@@ -75,21 +86,28 @@ function App() {
         <h1>
           <button
             onClick={(e) => {
-              setClueAmount(clueAmount-1);
+              setClueAmount(clueAmount - 1);
             }}
           >
             <BsArrowDown />
           </button>
           Who am I question
           <br />
-          Clue {clues[Number(clueAmount)-1]}
+          Clue {clues[Number(clueAmount) - 1]}
           <br />
           {clueAmount} points
         </h1>
       </div>
       <Help />
-      <a id='github' href='https://github.com/jeffrey-zang/trivia-scorekeeper' target='_blank' rel='noreferrer'>
-        <button><BsGithub/></button>
+      <a
+        id="github"
+        href="https://github.com/jeffrey-zang/trivia-scorekeeper"
+        target="_blank"
+        rel="noreferrer"
+      >
+        <button>
+          <BsGithub />
+        </button>
       </a>
     </div>
   );
