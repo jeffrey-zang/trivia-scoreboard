@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { AiOutlineQuestion } from "react-icons/ai";
+import { AiOutlineQuestion, AiOutlineArrowDown } from "react-icons/ai";
 import { RxCross1 } from "react-icons/rx";
 import { useShortcutEventListener } from "../utils";
 
@@ -41,7 +41,7 @@ const Help = () => {
           </tr>
           <tr>
             <td>space</td>
-            <td>Start the timer</td>
+            <td>Start the timer or reset the timer while it is running</td>
           </tr>
           <tr>
             <td>r</td>
@@ -54,6 +54,10 @@ const Help = () => {
           <tr>
             <td>c</td>
             <td>Show clues for Who Am I questions</td>
+          </tr>
+          <tr>
+            <td><AiOutlineArrowDown/></td>
+            <td>increment theme/clue</td>
           </tr>
           <tr>
             <td>/</td>
