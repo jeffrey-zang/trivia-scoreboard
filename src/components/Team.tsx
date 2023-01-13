@@ -1,7 +1,7 @@
 import { useState, FC, useCallback, useEffect } from "react";
 import { BsArrowUp, BsArrowDown } from "react-icons/bs";
 import { AiOutlineReload } from "react-icons/ai";
-import { useShortcutEventListener, useAudio } from "./utils";
+import { useShortcutEventListener, useAudio } from "../utils";
 import { useReward } from "react-rewards";
 
 interface TeamProps {

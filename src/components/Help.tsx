@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { AiOutlineQuestion } from "react-icons/ai";
 import { RxCross1 } from "react-icons/rx";
-import { useShortcutEventListener } from "./utils";
+import { useShortcutEventListener } from "../utils";
 
 const Help = () => {
   const [show, setShow] = useState<boolean>(false);

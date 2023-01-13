@@ -1,7 +1,7 @@
 import { useState, useEffect, useRef } from "react";
 import { GrPowerReset } from "react-icons/gr";
 import { BsFillPlayFill, BsFillPauseFill } from "react-icons/bs";
-import { useShortcutEventListener, useAudio } from "./utils";
+import { useShortcutEventListener, useAudio } from "../utils";
 
 const Timer = () => {
   const [running, setRunning] = useState<boolean>(false);
