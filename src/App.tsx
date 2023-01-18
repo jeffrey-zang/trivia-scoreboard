@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import Team from "./components/Team";
 import Timer from "./components/Timer";
 import Help from "./components/Help";
+import JohnCounter from "./components/JohnCounter";
 import { useShortcutEventListener } from "./utils";
 
 import { BsArrowDown, BsGithub } from "react-icons/bs";
@@ -98,6 +99,7 @@ function App() {
           {clueAmount} points
         </h1>
       </div>
+      <JohnCounter/>
       <Help />
       <a
         id="github"
