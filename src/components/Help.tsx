@@ -60,6 +60,10 @@ const Help = () => {
             <td>increment theme/clue</td>
           </tr>
           <tr>
+            <td>j</td>
+            <td>show/hide john counter</td>
+          </tr>
+          <tr>
             <td>/</td>
             <td>Show help tab</td>
           </tr>

@@ -31,6 +31,10 @@
     <td>Show theme tab</td>
   </tr>
   <tr>
+    <td>j</td>
+    <td>show/hide john counter</td>
+  </tr>
+  <tr>
     <td>/</td>
     <td>halp</td>
   </tr>
