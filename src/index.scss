@@ -173,3 +173,36 @@ button {
   top: 1rem;
   cursor: pointer;
 }
+#announce {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 99;
+  width: 80%;
+  background-color: white;
+  height: 50%;
+  border: 2px solid black;
+  padding: 0;
+  border-radius: 1rem;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  
+  input {
+    font-size: 4rem;
+    text-align: center;
+    outline: none;
+    width: 100%;
+    border: none;
+  }
+  button {
+    width: auto;
+    font-size: 1rem;
+    margin-bottom: 0.5rem;
+  }
+  h2 {
+    text-align: center;
+  }
+}

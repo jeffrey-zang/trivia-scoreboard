@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import Team from "./components/Team";
 import Timer from "./components/Timer";
 import Help from "./components/Help";
+import Announce from "./components/Announce";
 import JohnCounter from "./components/JohnCounter";
 import { useShortcutEventListener } from "./utils";
 
@@ -101,6 +102,7 @@ function App() {
       </div>
       <JohnCounter/>
       <Help />
+      <Announce />
       <a
         id="github"
         href="https://github.com/jeffrey-zang/trivia-scorekeeper"
