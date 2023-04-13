@@ -9,7 +9,9 @@ interface TeamProps {
 }
 
 const Team: FC<TeamProps> = ({ teamNumber }) => {
-  const { reward, isAnimating } = useReward(`reward${teamNumber}`, 'confetti', {
+  let choice =  Math.floor(Math.random() * 3);
+  console.log(choice)
+  const { reward, isAnimating } = useReward(`reward${teamNumber}`, (choice === 0) ? "balloons" : "confetti", {
     lifetime: 175,
     elementCount: 20,
     spread: 60,
