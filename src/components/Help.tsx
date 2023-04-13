@@ -71,6 +71,10 @@ const Help = () => {
             <td>a</td>
             <td>Show announcements modal</td>
           </tr>
+          <tr>
+            <td>g</td>
+            <td>gander</td>
+          </tr>
           <button id="x" onClick={() => setShow(!show)}>
             <RxCross1 />
           </button>

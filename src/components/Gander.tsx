@@ -11,13 +11,23 @@ const Gander = () => {
     const ref2= useRef<HTMLImageElement>(null);
     const ref3= useRef<HTMLImageElement>(null);
     const refs = [ref1, ref2, ref3]
+    const [show, setShow] = useState<boolean>(false);
 
     const eventListener = useShortcutEventListener("g", [], () => {
-        let refchosen = refs[Math.floor(Math.random() * refs.length)];
-        if (refchosen.current != undefined) {
-            refchosen.current.classList.toggle('show');
+        if (show) {
+            if (ref1.current && ref2.current && ref3.current) {
+                ref1.current.className = '';
+                ref2.current.className = '';
+                ref3.current.className = '';
+            }
+            setShow(false)     
+        } else {
+            let refchosen = refs[Math.floor(Math.random() * refs.length)];
+            if (refchosen.current != undefined) {
+                refchosen.current.classList.toggle('show');
+            }
+            setShow(true)
         }
-        console.log('among')
     });
     
       useEffect(() => {

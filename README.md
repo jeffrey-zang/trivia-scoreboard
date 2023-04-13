@@ -38,4 +38,12 @@
     <td>/</td>
     <td>halp</td>
   </tr>
+    <tr>
+    <td>a</td>
+    <td>announcement</td>
+  </tr>
+  <tr>
+    <td>g</td>
+    <td>gander</td>
+  </tr>
 </table>
