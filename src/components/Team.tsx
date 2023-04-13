@@ -9,9 +9,9 @@ interface TeamProps {
 }
 
 const Team: FC<TeamProps> = ({ teamNumber }) => {
-  const { reward, isAnimating } = useReward(`reward${teamNumber}`, "confetti", {
+  const { reward, isAnimating } = useReward(`reward${teamNumber}`, 'confetti', {
     lifetime: 175,
-    elementCount: 40,
+    elementCount: 20,
     spread: 60,
   });
   const [teamName, setTeamName] = useState<string>(
