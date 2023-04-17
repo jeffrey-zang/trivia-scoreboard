@@ -57,7 +57,7 @@ const Timer = () => {
             setRunning(false);
             if (ref.current) ref.current.style.backgroundColor = "red";
             togglePlaying();
-            setMessage("you slow");
+            setMessage("Time!");
           }
           return prevTime - 10;
         });
