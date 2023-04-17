@@ -2,7 +2,7 @@ import { useState, FC, useCallback, useEffect } from "react";
 import { BsArrowUp, BsArrowDown } from "react-icons/bs";
 import { AiOutlineReload } from "react-icons/ai";
 import { useShortcutEventListener, useAudio } from "../utils";
-import { useReward } from "react-rewards";
+// import { useReward } from "react-rewards";
 
 interface TeamProps {
   teamNumber: number;
@@ -11,11 +11,11 @@ interface TeamProps {
 const Team: FC<TeamProps> = ({ teamNumber }) => {
   let choice =  Math.floor(Math.random() * 3);
   console.log(choice)
-  const { reward, isAnimating } = useReward(`reward${teamNumber}`, (choice === 0) ? "balloons" : "confetti", {
-    lifetime: 175,
-    elementCount: 20,
-    spread: 60,
-  });
+  // const { reward, isAnimating } = useReward(`reward${teamNumber}`, (choice === 0) ? "balloons" : "confetti", {
+  //   lifetime: 175,
+  //   elementCount: 20,
+  //   spread: 60,
+  // });
   const [teamName, setTeamName] = useState<string>(
     teamNumber === 1 ? "Team A" : "Team B"
   );
@@ -30,7 +30,7 @@ const Team: FC<TeamProps> = ({ teamNumber }) => {
     () => {
       audio.play();
       setScore(score + 10);
-      reward();
+      // reward();
     }
   );
 
@@ -73,7 +73,7 @@ const Team: FC<TeamProps> = ({ teamNumber }) => {
           onClick={() => {
             setScore(score + 10);
             audio.play();
-            reward();
+            // reward();
           }}
         >
           <span id={`reward${teamNumber}`}>

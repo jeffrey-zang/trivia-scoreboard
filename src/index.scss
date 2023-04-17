@@ -106,14 +106,17 @@ button {
   text-align: center;
   // height: 75vh;
   border-right: 2px solid black;
-  
+  flex-direction: column;
+  display: flex;
+  align-items: center;
+
   .score {
     text-align: center;
-    font-size: 10rem;
-    width: 50%;
+    font-size: 9rem;
+    margin: 4rem;
+    width: 100%;
     border: none;
     outline: none;
-    margin: 4rem;
   }
   .teamName {
     display: flex;
@@ -134,9 +137,9 @@ button {
   transform: translate(-50%, -50%);
   z-index: 3;
   background-color: #fff;
-  width: 50%;
+  width: 80%;
   box-shadow: 0 1px 10px 2px hsl(0deg 0% 69% / 40%);
-  padding: 2rem;
+  padding: 1rem;
   border-radius: 10px;
   border: 2px solid black;
 
@@ -149,7 +152,7 @@ button {
   td, th {
     border: 1px solid #dddddd;
     text-align: left;
-    padding: 8px;
+    padding: 4px;
     width: 50%;
   }
   
@@ -163,9 +166,9 @@ button {
   bottom: 2rem;
 }
 #github {
-  position: absolute;
-  left: 2rem;
-  bottom: 2rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
 }
 #x {
   position: absolute;

@@ -104,16 +104,6 @@ function App() {
       <JohnCounter/>
       <Help />
       <Announce />
-      <a
-        id="github"
-        href="https://github.com/jeffrey-zang/trivia-scorekeeper"
-        target="_blank"
-        rel="noreferrer"
-      >
-        <button>
-          <BsGithub />
-        </button>
-      </a>
       <Gander/>
     </div>
   );

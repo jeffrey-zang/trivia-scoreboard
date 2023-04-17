@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { AiOutlineQuestion, AiOutlineArrowDown } from "react-icons/ai";
 import { RxCross1 } from "react-icons/rx";
 import { useShortcutEventListener } from "../utils";
+import { BsGithub } from "react-icons/bs";
 
 const Help = () => {
   const [show, setShow] = useState<boolean>(false);
@@ -79,7 +80,16 @@ const Help = () => {
             <RxCross1 />
           </button>
         </table>
-      </div>
+        <a
+          id='github'
+          href="https://github.com/jeffrey-zang/trivia-scorekeeper"
+          target="_blank"
+          rel="noreferrer"
+        >
+            <BsGithub />
+            {' '}Source
+        </a>
+        </div>
       <button
         id="helpbutton"
         onClick={() => {
