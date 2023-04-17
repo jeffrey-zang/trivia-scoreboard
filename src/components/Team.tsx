@@ -29,7 +29,7 @@ const Team: FC<TeamProps> = ({ teamNumber }) => {
     [score, togglePlaying],
     () => {
       audio.play();
-      setScore(score + 1);
+      setScore(score + 10);
       reward();
     }
   );
@@ -71,7 +71,7 @@ const Team: FC<TeamProps> = ({ teamNumber }) => {
       <div className="buttons">
         <button
           onClick={() => {
-            setScore(score + 1);
+            setScore(score + 10);
             audio.play();
             reward();
           }}
@@ -80,7 +80,7 @@ const Team: FC<TeamProps> = ({ teamNumber }) => {
             <BsArrowUp />
           </span>
         </button>
-        <button onClick={() => setScore(score - 1)}>
+        <button onClick={() => setScore(score - 10)}>
           <BsArrowDown />
         </button>
         <button onClick={() => setScore(0)}>
