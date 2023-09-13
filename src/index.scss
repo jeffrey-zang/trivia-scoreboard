@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap');
 
 body {
   margin: 0;
@@ -6,12 +7,10 @@ body {
   -moz-osx-font-smoothing: grayscale;
   border: none;
   outline: none;
+  font-family: 'Inter', sans-serif;
 }
-* { font-family: 'Inter', sans-serif; }
-
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+input, button {
+  font-family: 'Inter', sans-serif;
 }
 
 h1, h2, h3 {
@@ -23,6 +22,11 @@ h1 {
 
 * {
   // outline: 1px solid red;
+}
+
+input {
+  border-color: #999;
+  outline-color: #999;
 }
 
 .App {
@@ -41,7 +45,7 @@ h1 {
   align-items: center;
 }
 .timer {
-  border: 2px solid black;
+  border: 2px solid #999;
   padding: 0.5rem;
   width: 10rem;
   text-align: center;
@@ -55,6 +59,7 @@ h1 {
   border-radius: 10px;
   z-index: 2;
   background-color: #fff;
+  font-family: 'Space Mono', monospace !important;
 }
 .buttons {
   display: flex;
@@ -105,7 +110,7 @@ button {
   padding: 1.25rem 8rem;
   text-align: center;
   margin-top: -2rem;
-  border-right: 2px solid black;
+  border-right: 2px solid #999;
   flex-direction: column;
   display: flex;
   align-items: center;
@@ -124,6 +129,7 @@ button {
     display: flex;
     justify-content: center;
     font-size: 2rem;
+    border: 2px solid #999;
     text-align: center;
     padding: 0.5rem;
     width: 100%;
@@ -143,7 +149,7 @@ button {
   box-shadow: 0 1px 10px 2px hsl(0deg 0% 69% / 40%);
   padding: 1rem;
   border-radius: 10px;
-  border: 2px solid black;
+  border: 2px solid #999;
 
   table {
     font-family: arial, sans-serif;
@@ -196,7 +202,7 @@ button {
   z-index: 99;
   width: 80%;
   background-color: white;
-  border: 2px solid black;
+  border: 2px solid #999;
   padding: 0;
   border-radius: 1rem;
   padding: 1rem;
@@ -228,7 +234,7 @@ button {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  z-index: 98;
+  z-index: -1;
   width: 15rem;
   height: 15rem;
   border-radius: 10px;
@@ -239,4 +245,5 @@ button {
 .show {
   opacity: 1 !important;
   transition: opacity 2s ease;
+  z-index: 98 !important;
 }
