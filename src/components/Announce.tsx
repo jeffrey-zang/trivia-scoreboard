@@ -30,7 +30,7 @@ const Announce = () => {
       <h2 style={{marginTop: '3rem'}}>Presets</h2>
       <button onClick={() => setAnnouncement('COME UP IF YOU HAVEN\'T PLAYED YET')}>Game over</button>
       <button onClick={() => setAnnouncement('thanks for coming, come back next week')}>Meeting over</button>
-      <button onClick={() => setAnnouncement('shh or gander will come to your house')}>be quiet lol</button>
+      {/* <button onClick={() => setAnnouncement('shh or gander will come to your house')}>be quiet lol</button> */}
     </div>
   );
 };

@@ -1,5 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;700&display=swap');
 
 body {
   margin: 0;
@@ -25,8 +25,8 @@ h1 {
 }
 
 input {
-  border-color: #999;
-  outline-color: #999;
+  border-color: #ccc;
+  outline-color: #ccc;
 }
 
 .App {
@@ -45,7 +45,7 @@ input {
   align-items: center;
 }
 .timer {
-  border: 2px solid #999;
+  border: 2px solid #ccc;
   padding: 0.5rem;
   width: 10rem;
   text-align: center;
@@ -59,7 +59,7 @@ input {
   border-radius: 10px;
   z-index: 2;
   background-color: #fff;
-  font-family: 'Space Mono', monospace !important;
+  font-family: 'Roboto Mono', monospace;
 }
 .buttons {
   display: flex;
@@ -74,7 +74,7 @@ button {
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: #eee;
+  background-color: #efefef;
   border: 1px solid #ccc;
   border-radius: 1.5rem;
   cursor: pointer;
@@ -105,31 +105,37 @@ button {
     width: 100%;
   }
 }
+.divider {
+  height: 60vh;
+  width: 2px;
+  background-color: #ccc;
+}
 .team {
   width: 50%;
   padding: 1.25rem 8rem;
   text-align: center;
-  margin-top: -2rem;
-  border-right: 2px solid #999;
+  margin-top: -4rem;
   flex-direction: column;
   display: flex;
   align-items: center;
 
   .score {
     text-align: center;
-    font-size: 12rem;
+    font-size: 16rem;
     margin: 4rem;
     width: 100%;
     border: none;
     outline: none;
-    margin: 4rem;
+    line-height: 16rem;
+    margin: 3rem;
     font-weight: bold;
+    font-family: 'Roboto Mono', monospace;
   }
   .teamName {
     display: flex;
     justify-content: center;
-    font-size: 2rem;
-    border: 2px solid #999;
+    font-size: 2.5rem;
+    border: 2px solid #ccc;
     text-align: center;
     padding: 0.5rem;
     width: 100%;
@@ -149,7 +155,7 @@ button {
   box-shadow: 0 1px 10px 2px hsl(0deg 0% 69% / 40%);
   padding: 1rem;
   border-radius: 10px;
-  border: 2px solid #999;
+  border: 2px solid #ccc;
 
   table {
     font-family: arial, sans-serif;
@@ -177,6 +183,7 @@ button {
   margin-left: auto;
   margin-right: auto;
   text-align: center;
+  color: #666;
 }
 #helpbutton {
   position: absolute;
@@ -202,7 +209,7 @@ button {
   z-index: 99;
   width: 80%;
   background-color: white;
-  border: 2px solid #999;
+  border: 2px solid #ccc;
   padding: 0;
   border-radius: 1rem;
   padding: 1rem;

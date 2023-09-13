@@ -59,12 +59,13 @@ function App() {
 
   return (
     <div className="App">
-      <h1>Trivia Scoreboard</h1>
-      <div id='packetinfo' onClick={() => setPacketType(!packetType)}>Packet type: {(packetType) ? "Intermediate" : "Senior"}</div>
+      <h1>Scoreboard</h1>
+      <div id='packetinfo' onClick={() => setPacketType(!packetType)}>{(packetType) ? "Intermediate" : "Senior"} Pack</div>
       <div id='roundinfo' onClick={() => setRound(round + 1)}>Round {round}</div>
 
       <div id="wrapper">
         <Team teamNumber={1} />
+        <div className='divider'></div>
         <Team teamNumber={2} />
       </div>
       <Timer />
