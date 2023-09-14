@@ -43,25 +43,33 @@ function App() {
     setPacketType(true)
   });
 
+  const toggleZen = useShortcutEventListener("z", [], () => {
+    document.body.classList.toggle('zen')
+  });
+
   useEffect(() => {
     document.addEventListener("keydown", eventListener);
     document.addEventListener("keydown", eventListener2);
     document.addEventListener("keydown", decrementListener);
     document.addEventListener("keydown", resetEventListener);
+    document.addEventListener("keydown", toggleZen);
 
     return () => {
       document.removeEventListener("keydown", eventListener);
       document.removeEventListener("keydown", eventListener2);
       document.removeEventListener("keydown", decrementListener);
       document.removeEventListener("keydown", resetEventListener);
+      document.removeEventListener("keydown", toggleZen);
     };
   }, [eventListener, eventListener2]);
 
   return (
     <div className="App">
       <h1>Scoreboard</h1>
-      <div id='packetinfo' onClick={() => setPacketType(!packetType)}>{(packetType) ? "Intermediate" : "Senior"} Pack</div>
-      <div id='roundinfo' onClick={() => setRound(round + 1)}>Round {round}</div>
+      <div className='info'>
+        <div id='packetinfo' onClick={() => setPacketType(!packetType)}>{(packetType) ? "Intermediate" : "Senior"} Pack</div>
+        <div id='roundinfo' onClick={() => setRound(round + 1)}>Round {round}</div>
+      </div>
 
       <div id="wrapper">
         <Team teamNumber={1} />

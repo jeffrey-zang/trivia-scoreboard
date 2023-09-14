@@ -76,6 +76,10 @@ const Help = () => {
             <td>g</td>
             <td>gander</td>
           </tr>
+          <tr>
+            <td>g</td>
+            <td>Toggle zen mode</td>
+          </tr>
           <button id="x" onClick={() => setShow(!show)}>
             <RxCross1 />
           </button>

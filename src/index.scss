@@ -20,6 +20,24 @@ h1 {
   text-align: center;
 }
 
+body.zen {
+  button {
+    display: none;
+  }
+  .info {
+    display: none;
+  }
+  .team {
+    margin-top: 6rem;
+  }
+  h1 {
+    display: none;
+  }
+  .teamName {
+    border-color: white;
+  }
+}
+
 * {
   // outline: 1px solid red;
 }
