@@ -77,7 +77,7 @@ const Help = () => {
             <td>gander</td>
           </tr>
           <tr>
-            <td>g</td>
+            <td>z</td>
             <td>Toggle zen mode</td>
           </tr>
           <button id="x" onClick={() => setShow(!show)}>
