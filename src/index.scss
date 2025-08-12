@@ -303,5 +303,6 @@ button {
   .timer {
     top: 30%;
     width: 12rem;
+    pointer-events: none; /* Let taps pass through to team panels */
   }
 }
