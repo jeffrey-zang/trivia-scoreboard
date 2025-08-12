@@ -1,4 +1,5 @@
 import { useState, FC, useCallback, useEffect } from "react";
+import type { MouseEvent as ReactMouseEvent } from "react";
 import { BsArrowUp, BsArrowDown } from "react-icons/bs";
 import { AiOutlineReload } from "react-icons/ai";
 import { useShortcutEventListener, useAudio } from "../utils";
@@ -24,6 +25,14 @@ const Team: FC<TeamProps> = ({ teamNumber }) => {
     const [focusState, setFocusState] = useState<boolean>(false);
     const [playing, togglePlaying, audio] = useAudio("/Assets/ding.mp3");
 
+    const incrementScore = useCallback(() => {
+        setScore((s) => s + 10);
+        try {
+            audio.play();
+        } catch {}
+        // reward();
+    }, [audio]);
+
     const eventListener = useShortcutEventListener(
         teamNumber.toString(),
         [score, togglePlaying],
@@ -48,8 +57,18 @@ const Team: FC<TeamProps> = ({ teamNumber }) => {
         };
     }, [score, togglePlaying, eventListener, resetEventListener]);
 
+    const handleTeamClick = useCallback(
+        (e: ReactMouseEvent<HTMLDivElement>) => {
+            const target = e.target as HTMLElement;
+            // Ignore clicks that originate from inputs or buttons
+            if (target.closest("input, button, textarea")) return;
+            incrementScore();
+        },
+        [incrementScore]
+    );
+
     return (
-        <div className="team">
+        <div className="team" onClick={handleTeamClick} role="button" aria-label={`Increment score for ${teamName}`}>
             <input
                 value={teamName}
                 onChange={(e) => setTeamName(e.target.value)}
@@ -64,7 +83,8 @@ const Team: FC<TeamProps> = ({ teamNumber }) => {
                 }}
                 onBlur={() => {
                     setFocusState(false);
-                    setScore(parseInt(scoreInput));
+                    const parsed = parseInt(scoreInput);
+                    setScore(isNaN(parsed) ? 0 : parsed);
                 }}
                 className="score"
             />
