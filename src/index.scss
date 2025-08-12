@@ -136,6 +136,10 @@ button {
   flex-direction: column;
   display: flex;
   align-items: center;
+  cursor: pointer; /* Make entire panel feel tappable */
+  user-select: none;
+  -webkit-tap-highlight-color: transparent;
+  touch-action: manipulation;
 
   .score {
     text-align: center;
@@ -271,4 +275,33 @@ button {
   opacity: 1 !important;
   transition: opacity 2s ease;
   z-index: 98 !important;
+}
+
+/* Mobile responsiveness */
+@media (max-width: 768px) {
+  #wrapper {
+    gap: 0;
+  }
+  .divider {
+    height: 50vh;
+  }
+  .team {
+    padding: 1rem 1.5rem;
+  }
+  .team .score {
+    font-size: 26vw; /* Scale score to viewport width */
+    line-height: 1;
+    margin: 1rem 0 2rem 0;
+    pointer-events: none; /* Allow tapping score area to bubble to container */
+  }
+  .team .teamName {
+    font-size: 6vw;
+  }
+  .buttons {
+    display: none; /* Hide small buttons on mobile to favor tap-anywhere */
+  }
+  .timer {
+    top: 30%;
+    width: 12rem;
+  }
 }
